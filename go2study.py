@@ -37,6 +37,16 @@ def sound_max():
     #APPCOMMAND_VOLUME_MAX = 0x0a
     #APPCOMMAND_VOLUME_MIN = 0x09
     #win32api.SendMessage(-1, WM_APPCOMMAND, 0x30292, APPCOMMAND_VOLUME_MAX * 0x10000)
+    
+    if volume.GetMute() == 1 :
+        """
+        sessions = AudioUtilities.GetAllSessions()
+        for session in sessions:
+            process_volume = session.SimpleAudioVolume
+            if session.Process and (session.Process.name() == "go2study.exe" or session.Process.name() == "python.exe" ):
+                process_volume.SetMute(0, None)
+        """
+        volume.SetMute(0,None)
     volume.SetMasterVolumeLevel(0.0, None)
 
 
