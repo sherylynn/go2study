@@ -1,0 +1,1 @@
+pyinstaller -F -w go2study.py
