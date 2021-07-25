@@ -1,6 +1,6 @@
 time_count=0
-time_space=9
-time_pdf=18
+time_space=90
+time_pdf=180
 block_title="微信firefox"
 allow_title="通关宝典考试软件选择命令提示符"
 allow_pdf_title="福昕"
@@ -74,7 +74,7 @@ def remain_daytime():
 def alert():
     sound_max()
     #win32api.MessageBox(None,"快去看书","要命啦!!!!!!!!!!!!!!!!!!!!!",win32con.MB_OK)
-    engine = pyttsx3.init() 
+    engine = pyttsx3.init()
     # 设置要播报的Unicode字符串
     engine.say(alert_message()+"离考试倒数天数只有%d天了"%remain_daytime()) 
     # 等待语音播报完毕 
@@ -96,9 +96,10 @@ def countTime(inc):
     time_deadline=time_space
     if allow_pdf_title in title or test_title in title:
         time_deadline=time_pdf
-
+        
     if time_count >= time_deadline:
         alert()
+    #print("开始下一个计时")
     t = Timer(inc, countTime, (inc,))
     t.start()
 
